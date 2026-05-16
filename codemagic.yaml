@@ -1,0 +1,25 @@
+workflows:
+  ios-build:
+    name: FrameTime iOS
+    max_build_duration: 60
+    environment:
+      node: 20.11.0
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Expo prebuild
+        script: npx expo prebuild --platform ios --clean
+      - name: Install pods
+        script: cd ios && pod install
+      - name: Build iOS
+        script: |
+          xcodebuild \
+            -workspace ios/FrameTime.xcworkspace \
+            -scheme FrameTime \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath build
+    artifacts:
+      - build/**/*.app
