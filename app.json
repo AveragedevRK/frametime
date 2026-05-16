@@ -1,0 +1,70 @@
+{
+  "expo": {
+    "name": "FrameTime",
+    "slug": "frametime",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "scheme": "frametime",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.frametime.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "FrameTime needs access to your photos to create scheduled photo sessions.",
+        "NSPhotoLibraryAddUsageDescription": "FrameTime needs permission to save photos.",
+        "UIBackgroundModes": ["fetch", "remote-notification"],
+        "NSUserNotificationCenterNotificationPermissionGranted": true
+      },
+      "entitlements": {
+        "com.apple.security.application-groups": ["group.com.frametime.app"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.frametime.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "FrameTime needs access to your photos to create scheduled photo sessions."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#000000",
+          "sounds": []
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow FrameTime to access your photos.",
+          "savePhotosPermission": "Allow FrameTime to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
